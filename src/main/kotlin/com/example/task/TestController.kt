@@ -4,13 +4,12 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/")
-class TestController() {
+class TestController {
     @GetMapping
     fun getString() = "Hello World!"
 
     @PostMapping
-    fun echoString() : String {
-        println("Hello")
-        return "Hello"
+    fun echoMessage(@RequestBody message: Message) : Message {
+        return message
     }
 }
